@@ -1,0 +1,35 @@
+<% provide(:title, "New") %>
+<% s = "Your text... Maximum 100.000 sings. Two forms must be filled                                                                                                                                                                                                       Pug swag echo park, biodiesel bitters chillwave roof party organic waistcoat you probably haven't heard of them leggings tofu next level. Sustainable hashtag celiac echo park DIY plaid. Poutine tilde next level, retro sartorial marfa hammock gluten-free roof party. Etsy freegan roof party artisan biodiesel. Tattooed squid listicle, cliche occupy health goth williamsburg knausgaard twee intelligentsia tumblr irony chartreuse chambray messenger bag. Post-ironic try-hard organic street art +1 listicle. Cliche freegan hammock, tousled gentrify wayfarers mlkshk 90's deep v messenger bag.Echo park roof party fap, fashion axe pitchfork bicycle rights raw denim. Mixtape mumblecore tacos distillery waistcoat. Kogi pinterest you probably haven't heard of them helvetica shoreditch, neutra retro crucifix meggings wayfarers williamsburg sustainable franzen chartreuse. Sustainable four dollar toast mumblecore twee green juice, VHS squid flannel fixie church-key blog messenger bag ramps quinoa brooklyn. Lo-fi vinyl fixie, portland pickled art party biodiesel. Deep v pitchfork etsy everyday carry tumblr, tacos pinterest. Keytar small batch migas chambray distillery, twee mustache farm-to-table truffaut meh lo-fi polaroid. Pour-over ramps neutra, hashtag fingerstache slow-carb godard. Artisan hoodie hammock, +1 mumblecore disrupt gastropub offal. 3 wolf moon kogi raw denim flannel irony. Fixie wayfarers fingerstache, venmo kinfolk four dollar toast brooklyn DIY kickstarter salvia gentrify. Humblebrag bushwick DIY ethical pork belly, flexitarian narwhal roof party photo booth flannel 3 wolf moon iPhone lo-fi. Paleo heirloom kombucha, leggings blog letterpress hammock pop-up shoreditch. Bushwick shoreditch bespoke XOXO cray skateboard austin, before they sold out truffaut fanny pack schlitz small batch fashion axe waistcoat flannel. Selfies kinfolk YOLO semiotics everyday carry truffaut. Drinking vinegar vinyl cold-pressed, scenester kitsch distillery bespoke selfies roof party keytar forage flannel plaid everyday carry polaroid. Tousled try-hard pop-up small batch, migas wolf XOXO brunch vice. Fingerstache cray lomo, wayfarers taxidermy authentic kickstarter polaroid craft beer green juice brooklyn. Chicharrones vinyl semiotics, green juice pabst hoodie actually put a bird on it cliche direct trade schlitz. Actually cred tilde, fixie selfies normcore direct trade gastropub selvage. Farm-to-table flexitarian PBR&B polaroid try-hard mustache kogi locavore, godard gentrify paleo."%>
+
+
+    <%= simple_form_for @sentence do |f| %>
+      <%= render 'shared/errors', :object => @sentence%>
+<div class="panel-transparent">
+  <div class="panel-body">
+    <div class="row">
+     <div class="col-md-12">
+      <br>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+      <%= f.input :title, input_html: {class: 'form-control'}, placeholder: "Your title... Maximum 200 sings", label: false %>
+    </div>
+     <div class="col-md-12">
+      <br>
+    </div>
+    <div class="col-md-12">
+      <%= f.input :body, :input_html => {class: 'form-control', :rows => 23}, placeholder: "#{s}", label: false %>
+    </div>
+
+    <div class="col-md-12">
+      <hr>
+    </div>
+
+    <div class="col-md-12">
+      <p style="text-align:center"><%= f.button :submit, class: "btn btn-primary" %></p>
+    </div>
+<% end %>
+</div>
+</div>
+</div>
+<br>
+<br>

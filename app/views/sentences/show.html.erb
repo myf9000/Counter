@@ -1,0 +1,46 @@
+<% provide(:title, @sentence.title) %>
+
+<div class="col-md-12">
+  <p style="text-align:center"><%= link_to image_tag('logo3.png'), root_path %></p>
+</div> 
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-md-12">
+         <h3><p style="text-align:center"> <%= @sentence.title %> </p></h3>
+        </div>
+
+        <div class="col-md-12">
+        <hr>
+        <h4>Statistic:</h4>
+          <p><b>Signs: </b><%= @character_count %></p>
+          <p><b>Signs without spaces: </b><%= @character_count_nospaces %></p>
+          <p><b>Words: </b><%= @word_count %></p>
+          <p><b>Sentence: </b><%= @sentence_count %></p>
+          <p><b>Signs in one word (Medium): </b><%= (@character_count_nospaces.to_f/@word_count).round(2) %> </p>
+          <p><b>Words in one sentence (Medium): </b><%= (@word_count.to_f/@sentence_count).round(2) %> </p>
+          <p><b>Percente good words:</b> <%= @good_percentage %>%</p>
+          <hr>
+        <h4>Summary:</h4>
+          <p><b>Sentences: </b><%= @ideal_sentences %></p>
+        </div>
+
+        <div class="col-md-12">
+          <hr>
+           <p style="text-align:center">
+            <%= link_to "Back", new_sentence_path, class: "btn btn-primary" %>
+            <%= link_to "Email", new_sentence_path, class: "btn btn-success" %>
+            <%= link_to "PDF", new_sentence_path, class: "btn btn-success" %>
+           </p>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
