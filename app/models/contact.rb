@@ -3,6 +3,10 @@ class Contact < MailForm::Base
 	attribute :email, 		:validate => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
 	attribute :message,		:validate => true
 	
+	
+ 	def your_email(email)	
+	    {to: email, from: "ja180@vp.pl", subject: 'Welcome to My Awesome Site'}
+	end
 
 	def headers 
 		{

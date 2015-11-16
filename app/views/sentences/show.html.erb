@@ -1,5 +1,6 @@
 <% provide(:title, @sentence.title) %>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <div class="container-fluid">
   <div class="row">
     <div class="panel panel-default">
@@ -109,8 +110,7 @@
         <div class="col-md-12">
            <p style="text-align:center">
             <%= link_to new_sentence_path, class: "btn btn-primary" do %><span class="glyphicon glyphicon-chevron-left"></span> Back<% end %>
-            <%= link_to new_sentence_path, class: "btn btn-success" do %><span class="glyphicon glyphicon-envelope"></span>  Send in<% end %>
-            <%= link_to show_path(@sentence, :format => :pdf), class: "btn btn-success" do%><span class="glyphicon glyphicon-print"></span> Print <% end %>
+            <%= link_to show_path(@sentence, :format => :pdf), class: "btn btn-success" do%><span class="glyphicon glyphicon-print"></span> PDF <% end %>
            </p>
         </div>
       </div>
@@ -121,3 +121,4 @@
 <br>
 <br>
 <br>
+ 

@@ -7,7 +7,7 @@ class SentencesControllerTest < ActionController::TestCase
   end
 
   test "should get create" do
-    get :create
+    get :create, :sentence => { :title => 'Some title', :body => 'Some title'}
     assert_response :success
   end
 
