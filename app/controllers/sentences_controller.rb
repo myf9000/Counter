@@ -53,17 +53,17 @@ class SentencesController < ApplicationController
                  she'll shes should shouldn't show showed shown showns shows significant significantly 
                  similar similarly since six slightly so some somebody somehow someone somethan something 
                  sometime sometimes somewhat somewhere soon sorry specifically specified specify specifying 
-                 still stop strongly sub substantially successfully such sufficiently suggest sup sure]
+                 still stop strongly sub substantially successfully such sufficiently suggest sup sure to the]
 
   	@sentence = Sentence.friendly.find(params[:id])
     @txt = @sentence.body
     arr = []
-    arr << @txt
+    arr << @txt.downcase
     text = arr.join
-
+    @words = text.split(/[^a-zA-Z]/)
     # zliczenie znaków
     @character_count = text.length
-    @character_count_nospaces = text.gsub(/\s+/, '').length
+    @character_count_nospaces = text.gsub(/[^a-zA-Z']/, '').length
 
     # zliczenie s³ów, zdañ i akapitów
     @word_count = text.split.length
@@ -80,10 +80,21 @@ class SentencesController < ApplicationController
     # podsumowanie - wyodrêbnienie zdañ potencjalnie najbardziej znacz¹cych
     sentences = text.gsub(/\s+/, ' ').strip.split(/\.|\?|\!/)
     sentences_sorted = sentences.sort_by { |sentence| sentence.length }
-    one_third = sentences_sorted.length / 3
+    one_third = sentences_sorted.length / 5
     @ideal_sentences = sentences_sorted.slice(one_third, one_third + 1)
     @ideal_sentences = @ideal_sentences.select { |sentence| sentence =~ /is|are/ }
-    @ideal_sentences.join(". ")
+    @ideal_sentences = @ideal_sentences.to_s.gsub(/[^a-zA-Z,.]/, ' ')
+    @bad_percentage = 100 - @good_percentage
+
+    @freqs = Hash.new(0)
+    @words.each do |word|  
+      if !stop_words.include?(word) 
+        @freqs[word] += 1 
+      end
+    end
+    @freqs = @freqs.sort_by {|x,y| y }
+    @freqs.reverse!
+    @freqs = @freqs[1..11]
   end
 
   private

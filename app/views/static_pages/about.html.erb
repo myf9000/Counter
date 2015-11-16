@@ -1,4 +1,43 @@
 <% provide(:title, "About") %>
 
-<h1>StaticPages#about</h1>
-<p>Find me in app/views/static_pages/about.html.erb</p>
+<div class="panel-transparento">
+  <div class="panel-body">
+<div class="col-md-12">
+<br>
+      <p style="text-align:center"><%= image_tag('logo.png')%></p>
+    </div>
+<div class="abouts">
+<hr>
+    <div style="text-align:center; font-style: monaco;color: #2c3e50; ">
+    
+    <hr>
+      <h1>This App is for you!</h1>
+      <p>Get statistics about your text!</p>
+      
+       <%= link_to new_sentence_path, class: "btn btn-primary" do %><span class="glyphicon glyphicon-hourglass"></span> Get analize!<%end%>
+      <hr>
+      </div>
+      <div class="col-md-12">
+      <p>You can count words, sentences, popularity words... and what do you want! If You have any Idea what we can make the page better - send us a email! Thanks for any advise and your time. Save equals of your work in PDF and print or you can send email to yourself with statistics on your text. Statistics are shows on the chart! </p>
+      </div>
+      <div class="col-md-6">
+      <%= pie_chart ({"I like this page" => 20, "I'm in love with the count count" => 80}) %>
+      </div>
+      <div class="col-md-6">
+      <p>Default language is english, so if you want to try analize other languages - section good words can't works corectlly because stop words (words - not important for browsers, and what I think for you too) is only in english languages.</p>
+      <p>
+      Stop words are list with word for example: <i> a able about above abst accordance according accordingly across act actually added adj affected affecting affects after afterwards again against ah all almost alone along already also although always am...</i> This is the list about 300 words</p>
+      <p> Thanks for chartkick - for a great charts & textgiraffe for a nice logotyps. </p>
+      <p>If you like this page - Tweet it! Click on <a href="http://twitter.com/share"><span class="glyphicon glyphicon-thumbs-up"></span></a></p>
+      </div>
+      <div class="col-md-12">
+      <div style="text-align:center; font-style: monaco;color: #2c3e50; ">
+      <hr>
+      <p><b>Count txt was created by: <%= link_to image_tag('myf900.png'), "https://bitbucket.org/myf9/" %></b></p>
+      </div>
+      </div>
+   
+</div>
+</div>
+</div>
+<br>
