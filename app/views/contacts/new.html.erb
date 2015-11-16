@@ -1,0 +1,50 @@
+<% provide(:title, "Contact" ) %>
+
+
+<%= simple_form_for  @contact, html: { multipart: true }  do |f| %>
+<div class="panel-transparent">
+  <div class="panel-body">
+    <div class="row">
+     <div class="col-md-12">
+      <br>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :name, input_html: {class: 'form-control'}, placeholder: "Name", label: false %>
+    </div>
+
+     <div class="col-md-6">
+      <%= f.input :email, input_html: {class: 'form-control'}, placeholder: "Email", label: false %>
+    </div>
+    
+    <div class="col-md-12">
+    <br>
+      <%= f.text_area :message, class: 'form-control', rows: 14, placeholder: "Your message...", label: false  %>
+    </div>
+
+    <div class="col-md-12">
+     <br>
+    </div>
+
+    <div class="col-md-3 col-md-offset-4">
+      <p style="text-align:center"> <%= raw recaptcha_tags %> </p>
+    </div>
+    
+    <div class="col-md-12">
+      <hr>
+    </div>
+
+     <div class="col-md-12">
+      <p style="text-align:center"> 
+        <%= button_tag(type: 'submit', class: "btn btn-primary") do %> <span class="glyphicon glyphicon-envelope"></span> Send <% end%>
+      </p>
+    </div>
+<% end %>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+

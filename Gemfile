@@ -25,6 +25,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 gem 'friendly_id', '~> 5.1.0'
 gem 'chartkick'
+gem 'wicked_pdf'
+gem 'mail_form', '~> 1.5', '>= 1.5.1'
+gem "recaptcha", :require => "recaptcha/rails"
+gem 'mailcatcher'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

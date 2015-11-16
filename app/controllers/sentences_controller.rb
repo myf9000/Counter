@@ -95,6 +95,13 @@ class SentencesController < ApplicationController
     @freqs = @freqs.sort_by {|x,y| y }
     @freqs.reverse!
     @freqs = @freqs[1..11]
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "show", javascript_delay: 7000, :layout => 'pdf.html.erb',:template => '/sentences/show'  # Excluding ".pdf" extension.
+      end
+    end
   end
 
   private

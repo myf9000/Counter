@@ -1,24 +1,11 @@
-<% provide(:title, @sentence.title) %>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="panel panel-default">
-      <div class="panel-body">
 
         <div class="col-md-3">
-          <%= link_to image_tag('logo3.png'), root_path %>
+          <h2>Title: <%= @sentence.title %> - statistisc from www.counttxt.com</h2>
         </div> 
-
-        <div class="col-md-9">
-         <h3><%= @sentence.title %></h3>
-         <br>
-        </div>
 
         <div class="col-md-12">
         </div>
-        <div class="col-md-6">
-        <div class="panel panel-default">
-         <div class="panel-body">
+        <div class="col-md-12">
           <table class="table table-striped table-hover ">
             <thead>
               <tr>
@@ -57,17 +44,9 @@
             </tbody>
           </table>
         </div>
-        </div>
-        </div>
-
-        <div class="col-md-6">
-          <%= raw pie_chart ({"Good words" => @good_percentage, "Stop words" => @bad_percentage}) %>
-        </div>
         
 
         <div class="col-md-12">
-         <div class="panel panel-default">
-         <div class="panel-body">
           <table class="table table-striped table-hover ">
           <h4>Top unfiltered words: </h4>
             <thead>
@@ -87,37 +66,10 @@
           <% end %>
            </tbody>
           </table>
-          </div>
-          </div>
         </div>
 
         <div class="col-md-12">
-          <%= column_chart (@freqs.each { |word, freq| {"#{word}" => freq} })%>
+          <h4>Summary sentences:</h4>
+          <blockquote><%= @ideal_sentences %></blockquote>
         </div>
-
-        <div class="col-md-12">
-          <div class="panel panel-default">
-             <div class="panel-body">
-              <h4>Summary sentences:</h4>
-             </div>
-              <div class="panel-footer">
-                 <blockquote><%= @ideal_sentences %></blockquote>
-              </div>
-            </div>
-        </div>
-
-        <div class="col-md-12">
-           <p style="text-align:center">
-            <%= link_to new_sentence_path, class: "btn btn-primary" do %><span class="glyphicon glyphicon-chevron-left"></span> Back<% end %>
-            <%= link_to new_sentence_path, class: "btn btn-success" do %><span class="glyphicon glyphicon-envelope"></span>  Send in<% end %>
-            <%= link_to show_path(@sentence, :format => :pdf), class: "btn btn-success" do%><span class="glyphicon glyphicon-print"></span> Print <% end %>
-           </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<br>
-<br>
-<br>
-<br>
+      
